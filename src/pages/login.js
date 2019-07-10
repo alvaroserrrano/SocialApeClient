@@ -9,9 +9,38 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-const styles = theme => ({
-  ...theme
-});
+
+const styles = {
+  form: {
+    textAlign: 'center'
+  },
+  image: {
+    margin: '20px auto 20px'
+  },
+  pageTitle: {
+    margin: '10px auto 10px'
+  },
+  textField: {
+    margin: '10px auto 10px'
+  },
+  button: {
+    marginTop: '20px',
+    marginBottom: '20px',
+    position: 'relative'
+  },
+  customError: {
+    color: 'red',
+    fontSize: '0.8 rem',
+    marginTop: '10px'
+  },
+  signUpLink: {
+    marginTop: '25px',
+    color: '#ffffff'
+  },
+  buttonProgress: {
+    position: 'absolute'
+  }
+};
 
 class login extends Component {
   constructor() {
@@ -62,7 +91,11 @@ class login extends Component {
         <Grid item sm />
         <Grid item sm>
           <img src={AppIcon} alt='monkey' className={classes.image} />
-          <Typography variant='h2' className={classes.pageTitle}>
+          <Typography
+            variant='h2'
+            color='secondary'
+            className={classes.pageTitle}
+          >
             Login
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
@@ -104,11 +137,14 @@ class login extends Component {
             >
               Login
               {loading && (
-                <CircularProgress size={40} className={classes.progress} />
+                <CircularProgress
+                  size={40}
+                  className={classes.buttonProgress}
+                />
               )}
             </Button>
             <br />
-            <small className={classes.smallText}>
+            <small className={classes.signUpLink}>
               Don't have an account?{' '}
               <Link to='/signup' style={{ color: 'rgba(155, 250, 78)' }}>
                 {' '}
