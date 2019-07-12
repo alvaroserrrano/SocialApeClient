@@ -4,6 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
+import EditDetails from './EditDetails';
 //MUI stuff
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/styles';
@@ -140,6 +141,7 @@ export class Profile extends Component {
             <MyButton tip='Logout' onClick={this.handleLogout}>
               <KeyboardReturn color='primary' />
             </MyButton>
+            <EditDetails />
           </div>
         </Paper>
       ) : (
