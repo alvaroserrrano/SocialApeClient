@@ -21,7 +21,7 @@ import MyButton from '../util/MyButton';
 //Redux
 import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../redux/actions/userActions';
-const styles = them => ({
+const styles = theme => ({
   paper: {
     padding: 20
   },
@@ -100,7 +100,7 @@ export class Profile extends Component {
                 onChange={this.handleImageChange}
                 hidden='hidden'
               />
-              <MyButton onClick={this.handleEditPicture}>
+              <MyButton title='Edit Icon' onClick={this.handleEditPicture}>
                 <EditIcon color='primary' />
               </MyButton>
             </div>
@@ -138,7 +138,7 @@ export class Profile extends Component {
               {''}
               <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
             </div>
-            <MyButton tip='Logout' onClick={this.handleLogout}>
+            <MyButton title='logout' tip='Logout' onClick={this.handleLogout}>
               <KeyboardReturn color='primary' />
             </MyButton>
             <EditDetails />

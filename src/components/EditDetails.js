@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
+//Redux
 import { connect } from 'react-redux';
 import { editUserDetails } from '../redux/actions/userActions';
+//Mui stuff
 import Tooltip from '@material-ui/core/Tooltip';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -25,6 +27,7 @@ export class EditDetails extends Component {
     location: '',
     open: false
   };
+
   mapUserDetailsToState = credentials => {
     this.setState({
       bio: credentials.bio ? credentials.bio : '',
@@ -32,13 +35,20 @@ export class EditDetails extends Component {
       location: credentials.location ? credentials.location : ''
     });
   };
+
   handleOpen = () => {
     this.setState({ open: true });
     this.mapUserDetailsToState(this.props.credentials);
   };
   handleClose = () => {
-    this.setState({ open: true });
+    this.setState({ open: false });
   };
+
+  componentDidMount() {
+    const { credentials } = this.props;
+    this.mapUserDetailsToState(credentials);
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -53,16 +63,13 @@ export class EditDetails extends Component {
     this.props.editUserDetails(userDetails);
     this.handleClose();
   };
-  componentDidMount() {
-    const { credentials } = this.props;
-    this.mapUserDetailsToState(credentials);
-  }
+
   render() {
     const { classes } = this.props;
     return (
       <Fragment>
         <MyButton
-          title='Edit details'
+          tip='Edit details'
           placement='top'
           onClick={this.handleOpen}
           className={classes.button}
@@ -113,12 +120,12 @@ export class EditDetails extends Component {
             </form>
           </DialogContent>
           <DialogActions>
-            <MyButton onClick={this.handleClose} color='primary'>
+            <Button onClick={this.handleClose} color='primary'>
               Cancel
-            </MyButton>
-            <MyButton onClick={this.handleSubmit} color='primary'>
-              Save
-            </MyButton>
+            </Button>
+            <Button title='Submit' onClick={this.handleSubmit} color='primary'>
+              Submit
+            </Button>
           </DialogActions>
         </Dialog>
       </Fragment>
