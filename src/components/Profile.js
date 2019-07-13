@@ -12,6 +12,7 @@ import MuiLink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
 //ICONS
 import LocationOn from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
@@ -100,7 +101,11 @@ export class Profile extends Component {
                 onChange={this.handleImageChange}
                 hidden='hidden'
               />
-              <MyButton title='Edit Icon' onClick={this.handleEditPicture}>
+              <MyButton
+                tip='Edit profile picture'
+                onClick={this.handleEditPicture}
+                btnClassName='button'
+              >
                 <EditIcon color='primary' />
               </MyButton>
             </div>
@@ -138,7 +143,7 @@ export class Profile extends Component {
               {''}
               <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
             </div>
-            <MyButton title='logout' tip='Logout' onClick={this.handleLogout}>
+            <MyButton tip='Logout' onClick={this.handleLogout}>
               <KeyboardReturn color='primary' />
             </MyButton>
             <EditDetails />
@@ -159,12 +164,12 @@ export class Profile extends Component {
               Login
             </Button>
             <Button
-              variant='container'
+              variant='contained'
               color='secondary'
               component={Link}
               to='/signup'
             >
-              signup
+              Signup
             </Button>
           </div>
         </Paper>
