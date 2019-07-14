@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 import MyButton from '../util/MyButton';
+import DeleteScream from './DeleteScream';
 //MUI
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -82,9 +83,12 @@ class Scream extends Component {
         <FavoriteBorder color='primary' />
       </MyButton>
     );
-    const deleteButton = authenticated && userHandle === handle ? (
-      <DeleteScream screamId={screamId}
-    );
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeleteScream screamId={screamId} />
+      ) : (
+        <p>test</p>
+      );
     return (
       <Card className={classes.card}>
         <CardMedia
