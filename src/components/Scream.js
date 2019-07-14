@@ -62,7 +62,10 @@ class Scream extends Component {
         likeCount,
         commentCount
       },
-      user: { authenticated }
+      user: {
+        authenticated,
+        credentials: { handle }
+      }
     } = this.props;
     const likeButton = !authenticated ? (
       <MyButton tip='Like'>
@@ -78,6 +81,9 @@ class Scream extends Component {
       <MyButton tip='Like'>
         <FavoriteBorder color='primary' />
       </MyButton>
+    );
+    const deleteButton = authenticated && userHandle === handle ? (
+      <DeleteScream screamId={screamId}
     );
     return (
       <Card className={classes.card}>
@@ -95,6 +101,7 @@ class Scream extends Component {
           >
             {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant='body2' color='textSecondary'>
             {dayjs(createdAt).fromNow()}
           </Typography>

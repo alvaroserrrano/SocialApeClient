@@ -28,7 +28,7 @@ export const getScreams = () => dispatch => {
 //Like a scream
 export const likeScream = screamId => dispatch => {
   axios
-    .get(`/screams/${screamId}/like`)
+    .get(`/scream/${screamId}/like`)
     .then(res => {
       dispatch({
         type: LIKE_SCREAM,
