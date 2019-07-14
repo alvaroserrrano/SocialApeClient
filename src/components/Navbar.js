@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom/';
 import PropTypes from 'prop-types';
+import PostScream from './PostScream';
 //redux
 import { connect } from 'react-redux';
 //MaterialUI stuff
@@ -20,9 +21,7 @@ export class Navbar extends Component {
         <Toolbar className='nav-container'>
           {authenticated ? (
             <Fragment>
-              <MyButton tip='Post a scream!'>
-                <AddIcon color='secondary' />
-              </MyButton>
+              <PostScream />
               <Link to='/home'>
                 <MyButton tip='Home'>
                   <HomeIcon color='secondary' />
