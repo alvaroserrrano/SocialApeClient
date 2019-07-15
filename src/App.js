@@ -9,7 +9,7 @@ import Reset from '@material-ui/core/CssBaseline';
 //token
 import jwtDecode from 'jwt-decode';
 //import components
-import Navbar from './components/Navbar';
+import Navbar from './components/layout/Navbar';
 import AuthRoute from './util/AuthRoute';
 //import pages
 import home from './pages/home';
