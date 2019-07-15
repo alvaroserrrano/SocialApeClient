@@ -149,7 +149,12 @@ const mapStateToProps = state => ({
   UI: state.UI
 });
 
+const mapActionsToProps = {
+  getScream,
+  clearErrors
+};
+
 export default connect(
   mapStateToProps,
-  { getScream, clearErrors }
+  mapActionsToProps
 )(withStyles(styles)(ScreamDialog));
