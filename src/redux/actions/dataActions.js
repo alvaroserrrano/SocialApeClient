@@ -38,7 +38,10 @@ export const getScream = screamId => dispatch => {
   axios
     .get(`/scream/${screamId}`)
     .then(res => {
-      dispatch({ type: SET_SCREAM, payload: res.data });
+      dispatch({
+        type: SET_SCREAM,
+        payload: res.data
+      });
       dispatch({ type: STOP_LOADING_UI });
     })
     .catch(err => console.log(err));
