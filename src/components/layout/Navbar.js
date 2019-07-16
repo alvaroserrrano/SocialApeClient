@@ -11,8 +11,7 @@ import Button from '@material-ui/core/Button';
 import MyButton from '../../util/MyButton';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
-import Notifications from '@material-ui/icons/Notifications';
-
+import Notifications from './Notifications';
 export class Navbar extends Component {
   render() {
     const { authenticated } = this.props;
@@ -27,9 +26,7 @@ export class Navbar extends Component {
                   <HomeIcon color='secondary' />
                 </MyButton>
               </Link>
-              <MyButton tip='Notificatons'>
-                <Notifications color='secondary' />
-              </MyButton>
+              <Notifications color='secondary' />
             </Fragment>
           ) : (
             <Fragment>
